@@ -7,58 +7,58 @@
 
 <style>
 body{
-background:#0a0a0a;
+background:#000;
 color:white;
 font-family:Tahoma,sans-serif;
 text-align:center;
-padding:40px 20px;
+padding:30px;
 }
 
 h1{
-color:#f5c542;
-font-size:42px;
-margin-top:40px;
+color:#f4c542;
+font-size:55px;
 }
 
-p{
-font-size:20px;
+.desc{
 color:#ccc;
+font-size:24px;
+margin-bottom:40px;
 }
 
-.box{
+.card{
+background:#0b0b0b;
+padding:30px;
+border-radius:25px;
 max-width:500px;
 margin:auto;
-background:#111;
-padding:25px;
-border-radius:20px;
-margin-top:30px;
-}
-
-input{
-width:100%;
-padding:15px;
-font-size:20px;
-border:none;
-border-radius:10px;
-margin-bottom:15px;
-}
-
-button{
-width:100%;
-padding:18px;
-font-size:22px;
-background:#f5c542;
-border:none;
-border-radius:10px;
-font-weight:bold;
-cursor:pointer;
 }
 
 .price{
-font-size:50px;
-color:#f5c542;
+font-size:70px;
 font-weight:bold;
-margin:20px 0;
+color:#f4c542;
+margin-bottom:25px;
+}
+
+input{
+width:90%;
+padding:18px;
+font-size:22px;
+border-radius:12px;
+border:none;
+margin-bottom:20px;
+}
+
+button{
+background:#f4c542;
+color:#000;
+border:none;
+padding:18px;
+width:95%;
+font-size:28px;
+font-weight:bold;
+border-radius:15px;
+cursor:pointer;
 }
 </style>
 </head>
@@ -67,22 +67,47 @@ margin:20px 0;
 
 <h1>احذف اسمك</h1>
 
-<p>
+<p class="desc">
 احذف اسمك ورقمك من تطبيقات كشف الأرقام
 بخصوصية كاملة ومتابعة حتى الإغلاق
 </p>
 
-<div class="box">
+<div class="card">
 
 <div class="price">250 ريال</div>
 
-<input type="tel" placeholder="05XXXXXXXX">
+<input id="phone" placeholder="05XXXXXXXX">
 
-<button>
+<button onclick="sendWhatsapp()">
 احذف اسمي الآن
 </button>
 
 </div>
+
+<script>
+function sendWhatsapp(){
+
+let phone=document.getElementById('phone').value;
+
+if(phone==""){
+alert("أدخل رقم الجوال");
+return;
+}
+
+let msg=
+`طلب جديد - احذف اسمك
+
+رقم العميل:
+${phone}
+
+الخدمة:
+حذف الاسم من تطبيقات كشف الأرقام`;
+
+window.location.href=
+"https://wa.me/966554229903?text="+encodeURIComponent(msg);
+
+}
+</script>
 
 </body>
 </html>
