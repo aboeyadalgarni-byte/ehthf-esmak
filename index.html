@@ -6,77 +6,135 @@
 <title>احذف اسمك</title>
 
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Tahoma,sans-serif;
+}
+
 body{
 background:#000;
-color:white;
-font-family:Tahoma,sans-serif;
+color:#fff;
+padding:30px 15px;
 text-align:center;
-padding:30px;
 }
 
-h1{
-color:#f4c542;
+.logo{
 font-size:55px;
+font-weight:bold;
+color:#f4c542;
+margin-top:20px;
 }
 
-.desc{
+.subtitle{
+font-size:22px;
 color:#ccc;
-font-size:24px;
-margin-bottom:40px;
+margin:20px auto 40px;
+max-width:700px;
+line-height:1.8;
 }
 
 .card{
-background:#0b0b0b;
+max-width:600px;
+margin:auto;
+background:#111;
 padding:30px;
 border-radius:25px;
-max-width:500px;
-margin:auto;
+border:1px solid #222;
 }
 
 .price{
-font-size:70px;
+font-size:60px;
 font-weight:bold;
 color:#f4c542;
 margin-bottom:25px;
 }
 
 input{
-width:90%;
+width:100%;
 padding:18px;
-font-size:22px;
-border-radius:12px;
+font-size:20px;
 border:none;
-margin-bottom:20px;
+border-radius:12px;
+margin-bottom:15px;
+}
+
+.apps{
+text-align:right;
+margin:20px 0;
+}
+
+.apps h3{
+margin-bottom:15px;
+color:#f4c542;
+}
+
+.apps label{
+display:block;
+padding:10px 0;
+font-size:18px;
 }
 
 button{
+width:100%;
+padding:18px;
+font-size:24px;
+font-weight:bold;
+border:none;
+border-radius:12px;
 background:#f4c542;
 color:#000;
-border:none;
-padding:18px;
-width:95%;
-font-size:28px;
-font-weight:bold;
-border-radius:15px;
 cursor:pointer;
+}
+
+.features{
+max-width:700px;
+margin:50px auto;
+}
+
+.features div{
+padding:12px;
+font-size:18px;
+}
+
+.footer{
+margin-top:40px;
+color:#888;
+font-size:14px;
 }
 </style>
 </head>
 
 <body>
 
-<h1>احذف اسمك</h1>
+<div class="logo">احذف اسمك</div>
 
-<p class="desc">
-احذف اسمك ورقمك من تطبيقات كشف الأرقام
-بخصوصية كاملة ومتابعة حتى الإغلاق
-</p>
+<div class="subtitle">
+احذف اسمك ورقمك من تطبيقات كشف الأرقام بخصوصية كاملة ومتابعة حتى الإغلاق.
+</div>
 
 <div class="card">
 
 <div class="price">250 ريال</div>
 
-<input id="phone" placeholder="05XXXXXXXX">
+<input id="name" type="text" placeholder="الاسم">
+
+<input id="phone" type="tel" placeholder="05XXXXXXXX">
+
+<div class="apps">
+
+<h3>التطبيقات المطلوب الحذف منها</h3>
+
+<label><input type="checkbox" id="truecaller"> Truecaller</label>
+
+<label><input type="checkbox" id="sync"> Sync.me</label>
+
+<label><input type="checkbox" id="numberbook"> NumberBook</label>
+
+<label><input type="checkbox" id="eyecon"> Eyecon</label>
+
+</div>
 
 <button onclick="sendWhatsapp()">
 احذف اسمي الآن
@@ -84,27 +142,61 @@ cursor:pointer;
 
 </div>
 
+<div class="features">
+
+<div>✅ خصوصية تامة</div>
+<div>✅ متابعة حتى اكتمال الطلب</div>
+<div>✅ دعم فني عبر واتساب</div>
+<div>✅ تنفيذ يدوي لكل حالة</div>
+
+</div>
+
+<div class="footer">
+DeleteCaller.com
+</div>
+
 <script>
 function sendWhatsapp(){
 
-let phone=document.getElementById('phone').value;
+let name = document.getElementById('name').value;
+let phone = document.getElementById('phone').value;
 
-if(phone==""){
-alert("أدخل رقم الجوال");
+if(phone === ""){
+alert("الرجاء إدخال رقم الجوال");
 return;
 }
 
-let msg=
+let apps = [];
+
+if(document.getElementById('truecaller').checked)
+apps.push("Truecaller");
+
+if(document.getElementById('sync').checked)
+apps.push("Sync.me");
+
+if(document.getElementById('numberbook').checked)
+apps.push("NumberBook");
+
+if(document.getElementById('eyecon').checked)
+apps.push("Eyecon");
+
+let message =
 `طلب جديد - احذف اسمك
 
-رقم العميل:
+الاسم:
+${name}
+
+رقم الجوال:
 ${phone}
 
-الخدمة:
-حذف الاسم من تطبيقات كشف الأرقام`;
+التطبيقات المطلوبة:
+${apps.join(", ")}
 
-window.location.href=
-"https://wa.me/966554229903?text="+encodeURIComponent(msg);
+قيمة الخدمة:
+250 ريال`;
+
+window.location.href =
+"https://wa.me/966554229903?text=" + encodeURIComponent(message);
 
 }
 </script>
