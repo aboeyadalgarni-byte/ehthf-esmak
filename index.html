@@ -5,198 +5,65 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>احذف اسمك</title>
 
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Tahoma,sans-serif;
-}
-
-body{
-background:#050505;
-color:#fff;
-}
-
-.header{
-padding:20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-border-bottom:1px solid #222;
-}
-
-.logo{
-font-size:28px;
-font-weight:bold;
-color:#f4c542;
-}
-
-.hero{
-padding:40px 20px;
-text-align:center;
-}
-
-.hero h1{
-font-size:55px;
-color:#f4c542;
-margin-bottom:15px;
-}
-
-.hero p{
-font-size:20px;
-color:#ccc;
-line-height:1.8;
-}
-
-.features{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-margin-top:25px;
-}
-
-.feature{
-color:#f4c542;
-font-size:18px;
-}
-
-.form-box{
-max-width:700px;
-margin:40px auto;
-background:#111;
-padding:30px;
-border-radius:20px;
-border:1px solid #333;
-}
-
-.price{
-font-size:70px;
-font-weight:bold;
-color:#f4c542;
-text-align:center;
-margin-bottom:20px;
-}
-
-input{
-width:100%;
-padding:18px;
-border:none;
-border-radius:10px;
-margin-bottom:15px;
-font-size:20px;
-}
-
-button{
-width:100%;
-padding:18px;
-background:#f4c542;
-color:#000;
-font-size:22px;
-font-weight:bold;
-border:none;
-border-radius:10px;
-cursor:pointer;
-}
-
-.apps{
-padding:40px 20px;
-}
-
-.apps h2{
-text-align:center;
-margin-bottom:30px;
-font-size:35px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:15px;
-}
-
-.card{
-background:#111;
-padding:25px;
-border-radius:15px;
-text-align:center;
-border:1px solid #222;
-}
-
-.card h3{
-color:#f4c542;
-margin-bottom:10px;
-}
-
-.steps{
-padding:40px 20px;
-}
-
-.steps h2{
-text-align:center;
-margin-bottom:25px;
-}
-
-.step{
-background:#111;
-padding:20px;
-margin-bottom:15px;
-border-radius:15px;
-}
-
-.whatsapp{
-padding:40px 20px;
-text-align:center;
-}
-
-.whatsapp a{
-display:inline-block;
-padding:18px 40px;
-background:#25D366;
-color:#fff;
-text-decoration:none;
-font-size:22px;
-border-radius:12px;
-font-weight:bold;
-}
-
-footer{
-padding:30px;
-text-align:center;
-color:#999;
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="header">
-<div class="logo">احذف اسمك</div>
+<header class="navbar">
+
+<div class="logo">
+🛡️ احذف اسمك
 </div>
 
-<section class="hero">
-<h1>احذف اسمك</h1>
+<nav>
+<a href="#home">الرئيسية</a>
+<a href="#apps">التطبيقات</a>
+<a href="#how">كيف تعمل</a>
+<a href="#faq">الأسئلة الشائعة</a>
+</nav>
+
+</header>
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<h1>
+احذف اسمك من تطبيقات كشف الأرقام
+</h1>
 
 <p>
 خدمة متخصصة لحذف الاسم ورقم الجوال من أشهر تطبيقات كشف الأرقام
 بخصوصية كاملة ومتابعة حتى الإغلاق.
 </p>
 
-<div class="features">
-<div class="feature">✓ خصوصية تامة</div>
-<div class="feature">✓ متابعة حتى الإغلاق</div>
-<div class="feature">✓ تنفيذ يدوي دقيق</div>
+<div class="hero-buttons">
+
+<a href="#order" class="btn-gold">
+اطلب الخدمة الآن
+</a>
+
 </div>
+
+</div>
+
 </section>
 
-<div class="form-box">
+<section class="order-section" id="order">
+
+<div class="order-box">
+
+<h2>طلب الخدمة</h2>
 
 <div class="price">
 250 ريال
 </div>
+
+<input
+type="text"
+id="name"
+placeholder="الاسم">
 
 <input
 type="tel"
@@ -204,16 +71,20 @@ id="phone"
 placeholder="05XXXXXXXX">
 
 <button onclick="sendWhatsApp()">
-اطلب الخدمة الآن
+احذف اسمي الآن
 </button>
 
 </div>
 
-<section class="apps">
+</section>
 
-<h2>التطبيقات المدعومة</h2>
+<section id="apps" class="apps">
 
-<div class="grid">
+<h2>
+التطبيقات المدعومة
+</h2>
+
+<div class="cards">
 
 <div class="card">
 <h3>Truecaller</h3>
@@ -231,82 +102,83 @@ placeholder="05XXXXXXXX">
 </div>
 
 <div class="card">
-<h3>KSA Numbers</h3>
+<h3>Eyecon</h3>
 <p>حذف البيانات</p>
 </div>
 
-<div class="card">
-<h3>Telegram Bots</h3>
-<p>البوتات المشابهة</p>
-</div>
-
 </div>
 
 </section>
 
-<section class="steps">
+<section id="how" class="steps">
 
-<h2>كيف تعمل الخدمة؟</h2>
+<h2>كيف تعمل الخدمة ؟</h2>
 
 <div class="step">
-1- تقديم الطلب وإرسال الرقم.
+1️⃣ تقديم الطلب
 </div>
 
 <div class="step">
-2- مراجعة البيانات والتحقق.
+2️⃣ مراجعة البيانات
 </div>
 
 <div class="step">
-3- تنفيذ طلبات الحذف.
+3️⃣ تنفيذ الحذف
 </div>
 
 <div class="step">
-4- المتابعة حتى الإغلاق.
+4️⃣ المتابعة حتى الإغلاق
 </div>
 
 </section>
 
-<section class="whatsapp">
+<section class="features">
 
-<a href="https://wa.me/966554229903">
-تواصل واتساب
+<div class="feature">
+✅ خصوصية كاملة
+</div>
+
+<div class="feature">
+✅ متابعة حتى الإغلاق
+</div>
+
+<div class="feature">
+✅ دعم فني عبر واتساب
+</div>
+
+<div class="feature">
+✅ تنفيذ يدوي لكل حالة
+</div>
+
+</section>
+
+<section id="faq" class="faq">
+
+<h2>
+الأسئلة الشائعة
+</h2>
+
+<div class="faq-item">
+كم تستغرق الخدمة؟
+<br>
+عادة من يوم إلى عدة أيام حسب الحالة.
+</div>
+
+<div class="faq-item">
+هل الحذف مضمون؟
+<br>
+يتم تنفيذ جميع الإجراءات المتاحة ومتابعة الطلب.
+</div>
+
+</section>
+
+<a
+class="whatsapp-float"
+href="https://wa.me/966554229903">
+💬
 </a>
 
-</section>
-
-<footer>
-© احذف اسمك - جميع الحقوق محفوظة
-</footer>
-
-<script>
-
-function sendWhatsApp(){
-
-let phone =
-document.getElementById("phone").value;
-
-if(phone==""){
-alert("أدخل رقم الجوال");
-return;
-}
-
-let msg =
-`طلب جديد - احذف اسمك
-
-رقم العميل:
-${phone}
-
-الخدمة:
-حذف الاسم من تطبيقات كشف الأرقام`;
-
-window.open(
-`https://wa.me/966554229903?text=${encodeURIComponent(msg)}`,
-'_blank'
-);
-
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
